@@ -1,4 +1,4 @@
-# KeycloakAngularSample
+# Keycloak Angular Sample
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.0.
 
@@ -6,22 +6,51 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Run keycloak instance with docker  
 
-## Running end-to-end tests
+keycloak version 24.0.1
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+run with command
+```
+docker run -p 5776:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:24.0.1 start-dev
+```
 
-## Further help
+##  Realm config
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+add camelsolution  realm 
+
+![img.png](img.png)
+
+
+
+
+##  Clients  configs
+
+create two client `frontEnd` and `login-app`
+![img_1.png](img_1.png)
+
+`frontEnd`  client config :
+![img_4.png](img_4.png) ![img_2.png](img_2.png)
+
+`login-app` config :
+
+![img_5.png](img_5.png)
+
+##  keycloak JS
+
+Keycloak JS in downloaded from
+http://localhost:5776/js/keycloak.js
+
+add it to your project
+
+##  Backend  spring boot sample example 
+
+you can use this project as backend example connected to `login-app` client
+
+https://github.com/aliounedenna/keyclock-springboot-sample
+
